@@ -11,7 +11,7 @@
 	<groupId>com.projectmigry</groupId>
 	<artifactId>migry-portfolio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>migry-portfolio</name>
 	<description>migry portfolio project for Spring Boot</description>
 	<properties>
@@ -68,6 +68,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<!-- marked the embedded servlet container as provided -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		
 		<!-- log4jdbc -->
