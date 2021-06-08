@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.projectmigry.migry.portfolio.main.mapper.MainMapper">
+
+	<select id="selectBlogLatestList" resultType="com.projectmigry.migry.portfolio.main.domain.BlogVO">
+		select
+			id,
+			title,
+			content,
+			file_name fileName,
+			ori_file_name oriFileName,
+			date_format(rgst_dt, '%Y-%m-%d') rgstDt
+		from tb_blog
+		order by id desc
+		limit 2
+	</select>
+	
+	<select id="selectBlogInfo" parameterType="int" resultType="com.projectmigry.migry.portfolio.main.domain.BlogVO">
+		select
+			id,
+			title,
+			content,
+			file_name fileName,
+			ori_file_name oriFileName,
+			date_format(rgst_dt, '%Y-%m-%d') rgstDt
+		from tb_blog
+		where id = #{id}
+	</select>
+
+</mapper>

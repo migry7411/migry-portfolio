@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -763,7 +764,27 @@
                     <h2>My Life Story</h2>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
+                	<c:forEach var="row" items="${blogList}">
+                	<div class="col-lg-6">
+                        <div class="blog-item wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="blog-img">
+                                <img src="<c:url value='/blog/image/${row.id}' />" alt="Blog">
+                            </div>
+                            <div class="blog-text">
+                                <h2>${row.title}</h2>
+                                <div class="blog-meta">
+                                    <!-- <p><i class="far fa-user"></i>Admin</p>
+                                    <p><i class="far fa-list-alt"></i>Web Design</p> -->
+                                    <p><i class="far fa-calendar-alt"></i>${row.rgstDt}</p>
+                                    <!-- <p><i class="far fa-comments"></i>5</p> -->
+                                </div>
+                                <p>${row.content}</p>
+                                <!-- <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a> -->
+                            </div>
+                        </div>
+                    </div>
+                    </c:forEach>
+                    <!-- <div class="col-lg-6">
                         <div class="blog-item wow fadeInUp" data-wow-delay="0.1s">
                             <div class="blog-img">
                                 <img src="/resources/img/blog-1.jpg" alt="Blog">
@@ -771,15 +792,15 @@
                             <div class="blog-text">
                                 <h2>경주 안압지</h2>
                                 <div class="blog-meta">
-                                    <!-- <p><i class="far fa-user"></i>Admin</p>
-                                    <p><i class="far fa-list-alt"></i>Web Design</p> -->
+                                    <p><i class="far fa-user"></i>Admin</p>
+                                    <p><i class="far fa-list-alt"></i>Web Design</p>
                                     <p><i class="far fa-calendar-alt"></i>2021-05-06</p>
-                                    <!-- <p><i class="far fa-comments"></i>5</p> -->
+                                    <p><i class="far fa-comments"></i>5</p>
                                 </div>
                                 <p>
                                     경북 경주 안압지에서.. 평일임에도 많은 인파가 몰렸다.. 소문대로 야경 맛집이었다.
                                 </p>
-                                <!-- <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a> -->
+                                <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -791,18 +812,18 @@
                             <div class="blog-text">
                                 <h2>해변가 앞 카페에서..</h2>
                                 <div class="blog-meta">
-                                    <!-- <p><i class="far fa-user"></i>Admin</p>
-                                    <p><i class="far fa-list-alt"></i>Apps Design</p> -->
+                                    <p><i class="far fa-user"></i>Admin</p>
+                                    <p><i class="far fa-list-alt"></i>Apps Design</p>
                                     <p><i class="far fa-calendar-alt"></i>2021-04-25</p>
-                                    <!-- <p><i class="far fa-comments"></i>10</p> -->
+                                    <p><i class="far fa-comments"></i>10</p>
                                 </div>
                                 <p>
                                     충남 보령 대천해수욕장에 갔다. 군대 전역하고 나서 가본 뒤로 16년만이다..
                                 </p>
-                                <!-- <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a> -->
+                                <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -826,7 +847,7 @@
                             <a href=""><i class="fab fa-youtube"></i></a>
                             <a href=""><i class="fab fa-instagram"></i></a>
                             <a href=""><i class="fab fa-linkedin-in"></i></a>-->
-							<a href=""><i class="fab fa-github"></i></a>
+							<a href="https://github.com/migry7411"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>

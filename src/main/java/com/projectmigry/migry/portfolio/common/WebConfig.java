@@ -1,4 +1,4 @@
-package com.projectmigry.migry.portfolio.common.config;
+package com.projectmigry.migry.portfolio.common;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
