@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -26,7 +27,7 @@
         <link href="/resources/css/style.css" rel="stylesheet">
     </head>
 
-    <body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <body data-spy="scroll" data-target=".navbar" data-offset="51" oncontextmenu='return false' ondragstart='return false'>
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-light navbar-light">
             <div class="container-fluid">
@@ -254,96 +255,32 @@
                     <h2>Skill Inventory</h2>
                 </header>
                 <div class="timeline">
-                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2020.08 - 2021.04</div>
-                            <h2>AR 뷰티 플랫폼 Ticker 앱 개발</h2>
-                            <h4>Tachyon B&amp;T</h4>
-                            <p>
-                                API 서버 개발(Spring Boot, MariaDB) 및 인프라(Linux, AWS, Redis), DevOps(GitLab, Jenkins, NAS)를 담당했습니다.
-                            </p>
+                	<c:set var="num" value="1" />
+                	<c:forEach var="row" items="${projectList}">
+                	<c:choose>
+                	<c:when test="${num % 2 != 0}">
+                	<div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                		<div class="timeline-text">
+                            <div class="timeline-date">${fn:replace(fn:replace(row.startYm, '<', '&lt;'), '>', '&gt;')} - ${fn:replace(fn:replace(row.endYm, '<', '&lt;'), '>', '&gt;')}</div>
+                            <h2>${fn:replace(fn:replace(fn:replace(row.title, '<', '&lt;'), '>', '&gt;'), '&', '&amp;')}</h2>
+                            <h4>${fn:replace(fn:replace(fn:replace(row.company, '<', '&lt;'), '>', '&gt;'), '&', '&amp;')}</h4>
+                            <p>${fn:replace(fn:replace(fn:replace(row.content, '<', '&lt;'), '>', '&gt;'), '&', '&amp;')}</p>
                         </div>
                     </div>
-                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2019.12 - 2020.06</div>
-                            <h2>TMS 서버 개발 및 운영</h2>
-                            <h4>GPANS SmartLo</h4>
-                            <p>
-                                물류관리시스템(TMS) 서버 개발 및 운영(Spring Framework, Tomcat, Spring Boot, Postgresql), 인프라(Linux, Nginx)를 담당했습니다.
-                            </p>
+                	</c:when>
+                	<c:otherwise>
+                	<div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                		<div class="timeline-text">
+                            <div class="timeline-date">${fn:replace(fn:replace(row.startYm, '<', '&lt;'), '>', '&gt;')} - ${fn:replace(fn:replace(row.endYm, '<', '&lt;'), '>', '&gt;')}</div>
+                            <h2>${fn:replace(fn:replace(fn:replace(row.title, '<', '&lt;'), '>', '&gt;'), '&', '&amp;')}</h2>
+                            <h4>${fn:replace(fn:replace(fn:replace(row.company, '<', '&lt;'), '>', '&gt;'), '&', '&amp;')}</h4>
+                            <p>${fn:replace(fn:replace(fn:replace(row.content, '<', '&lt;'), '>', '&gt;'), '&', '&amp;')}</p>
                         </div>
                     </div>
-                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2019.04 - 2019.08</div>
-                            <h2>SK텔링크 중고폰 판매 사이트 구축 (바른폰)</h2>
-                            <h4>Klim Solution</h4>
-                            <p>
-                                API 서버(Python, Django, Postgresql) 및 Front 서버(Spring Boot, VueJS) 개발 환경을 구축하였으며, 중고폰 판매에 필요한 단말기 정보 및 단가 정보 등의 기준정보들을 관리하는 기능들을 개발하였고, 알림톡 전송 기능도 개발하였습니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2018.05 - 2019.02</div>
-                            <h2>SK텔레콤 블록체인 기반 ID 인증 시스템</h2>
-                            <h4>Klim Solution</h4>
-                            <p>
-                                API 서버(Spring Framework, Oracle) 개발 환경을 구축하였고, 타 시스템과의 연동 기능을 개발하였으며, ADMIN 페이지(Bootstrap)를 개발하였습니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2017.09 - 2018.02</div>
-                            <h2>SK텔레콤 스마트청구서 앱 고도화</h2>
-                            <h4>Klim Solution</h4>
-                            <p>
-                                각종 청구서 화면 및 기능에 대한 API 서버(Spring Framework, Oracle, jQuery) 고도화를 담당하였습니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2017.01 - 2017.04</div>
-                            <h2>인하대병원 메시지 전송관리 시스템 구축</h2>
-                            <h4>Klim Solution</h4>
-                            <p>
-                                환자에게 주기적으로 생활습관 관련 메시지를 알림톡으로 전송하기 위한 기능을 개발하였으며, 환자 정보 및 메시지 전송 주기, 메시지 내용 등의 정보 관리 기능을 개발했습니다. (Spring Framework, Oracle, jQuery)
-                            </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2016.09 - 2016.12</div>
-                            <h2>KB-LGU+ 제휴 프로젝트</h2>
-                            <h4>Klim Solution</h4>
-                            <p>
-                                KB 포인트로 상품 구매를 LGU+에서 이뤄지는 프로젝트이며, ADMIN 페이지(DevOn Framework, jQuery, Oracle)를 개발하였습니다.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2015.09 - 2016.02</div>
-                            <h2>SK하이닉스 ITAM 고도화</h2>
-                            <h4>NKIA</h4>
-                            <p>
-                                프로세스 절차 기능 및 각종 통계 기능을 고도화했습니다. (eGovFramework, ExtJS, Tibero)
-                            </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2015.02 - 2015.06</div>
-                            <h2>LH공사 차세대 ITSM 구축</h2>
-                            <h4>NKIA</h4>
-                            <p>
-                                프로세스 절차 기능을 개발(eGovFramework, ExtJS, Oracle)하였으며, 각종 통계 및 보고서 출력 기능을 개발(OZReport)했습니다.
-                            </p>
-                        </div>
-                    </div>
+                	</c:otherwise>
+                	</c:choose>
+                    <c:set var="num" value="${num + 1}" />
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -771,59 +708,19 @@
                                 <img src="<c:url value='/blog/image/${row.id}' />" alt="Blog">
                             </div>
                             <div class="blog-text">
-                                <h2>${row.title}</h2>
+                                <h2>${fn:replace(fn:replace(fn:replace(row.title, '<', '&lt;'), '>', '&gt;'), '&', '&amp;')}</h2>
                                 <div class="blog-meta">
                                     <!-- <p><i class="far fa-user"></i>Admin</p>
                                     <p><i class="far fa-list-alt"></i>Web Design</p> -->
                                     <p><i class="far fa-calendar-alt"></i>${row.rgstDt}</p>
                                     <!-- <p><i class="far fa-comments"></i>5</p> -->
                                 </div>
-                                <p>${row.content}</p>
+                                <p>${fn:replace(fn:replace(fn:replace(row.content, '<', '&lt;'), '>', '&gt;'), '&', '&amp;')}</p>
                                 <!-- <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a> -->
                             </div>
                         </div>
                     </div>
                     </c:forEach>
-                    <!-- <div class="col-lg-6">
-                        <div class="blog-item wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="blog-img">
-                                <img src="/resources/img/blog-1.jpg" alt="Blog">
-                            </div>
-                            <div class="blog-text">
-                                <h2>경주 안압지</h2>
-                                <div class="blog-meta">
-                                    <p><i class="far fa-user"></i>Admin</p>
-                                    <p><i class="far fa-list-alt"></i>Web Design</p>
-                                    <p><i class="far fa-calendar-alt"></i>2021-05-06</p>
-                                    <p><i class="far fa-comments"></i>5</p>
-                                </div>
-                                <p>
-                                    경북 경주 안압지에서.. 평일임에도 많은 인파가 몰렸다.. 소문대로 야경 맛집이었다.
-                                </p>
-                                <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="blog-item wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="blog-img">
-                                <img src="/resources/img/blog-2.jpg" alt="Blog">
-                            </div>
-                            <div class="blog-text">
-                                <h2>해변가 앞 카페에서..</h2>
-                                <div class="blog-meta">
-                                    <p><i class="far fa-user"></i>Admin</p>
-                                    <p><i class="far fa-list-alt"></i>Apps Design</p>
-                                    <p><i class="far fa-calendar-alt"></i>2021-04-25</p>
-                                    <p><i class="far fa-comments"></i>10</p>
-                                </div>
-                                <p>
-                                    충남 보령 대천해수욕장에 갔다. 군대 전역하고 나서 가본 뒤로 16년만이다..
-                                </p>
-                                <a class="btn" href="">Read More <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>

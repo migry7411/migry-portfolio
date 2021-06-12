@@ -105,5 +105,12 @@
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
     
+    $(document).bind('keydown',function(e){
+	    if (e.keyCode == 123 /* F12 */) {
+	        e.preventDefault();
+	        e.returnValue = false;
+	    }
+	});
+    
 })(jQuery);
 

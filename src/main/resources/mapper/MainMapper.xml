@@ -27,5 +27,17 @@
 		from tb_blog
 		where id = #{id}
 	</select>
+	
+	<select id="selectProjectList" resultType="com.projectmigry.migry.portfolio.main.domain.ProjectVO">
+		select
+			id,
+			title,
+			company,
+			content,
+			concat(substr(start_ym, 1, 4), '.', substr(start_ym, 5)) startYm,
+			concat(substr(end_ym, 1, 4), '.', substr(end_ym, 5)) endYm
+		from tb_project
+		order by start_ym desc
+	</select>
 
 </mapper>

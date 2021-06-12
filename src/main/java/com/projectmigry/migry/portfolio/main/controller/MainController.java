@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.projectmigry.migry.portfolio.common.Const;
 import com.projectmigry.migry.portfolio.main.domain.BlogVO;
+import com.projectmigry.migry.portfolio.main.domain.ProjectVO;
 import com.projectmigry.migry.portfolio.main.service.MainService;
 
 @Controller
@@ -28,10 +29,14 @@ public class MainController {
 	@GetMapping("/")
 	public String index(Model model) {
 		List<BlogVO> blogList = null;
+		List<ProjectVO> projectList = null;
 		
 		try {
 			blogList = mainService.getBlogLatestList();
+			projectList = mainService.getProjectList();
+			
 			model.addAttribute("blogList", blogList);
+			model.addAttribute("projectList", projectList);
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
