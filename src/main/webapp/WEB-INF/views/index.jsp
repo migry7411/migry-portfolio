@@ -46,7 +46,7 @@
                         <!--<a href="#price" class="nav-item nav-link">Price</a>
                         <a href="#review" class="nav-item nav-link">Review</a>
                         <a href="#team" class="nav-item nav-link">Team</a>-->
-						<a href="#contact" class="nav-item nav-link">Contact</a>
+						<!-- <a href="#contact" class="nav-item nav-link">Contact</a> -->
                         <a href="#blog" class="nav-item nav-link">Blog</a>
                     </div>
                 </div>
@@ -655,7 +655,7 @@
         
         
         <!-- Contact Start -->
-        <div class="contact wow fadeInUp" data-wow-delay="0.1s" id="contact">
+        <!-- <div class="contact wow fadeInUp" data-wow-delay="0.1s" id="contact">
             <div class="container-fluid">
                 <div class="container">
                     <div class="row align-items-center">
@@ -689,7 +689,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Contact End -->
 
 
@@ -777,9 +777,10 @@
         <script src="/resources/lib/isotope/isotope.pkgd.min.js"></script>
         <script src="/resources/lib/lightbox/js/lightbox.min.js"></script>
         
-        <!-- Contact Javascript File -->
+        <!-- Contact Javascript File 
         <script src="/resources/mail/jqBootstrapValidation.min.js"></script>
         <script src="/resources/mail/contact.js"></script>
+        -->
         
         <!-- Template Javascript -->
         <script src="/resources/js/main.js"></script>
