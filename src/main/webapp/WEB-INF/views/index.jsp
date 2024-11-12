@@ -69,7 +69,7 @@
                             </div>
                             <div class="hero-btn">
                                 <!--<a class="btn" href="">Hire Me</a>-->
-                                <a class="btn" href="#contact">Contact Me</a>
+                                <%--<a class="btn" href="#contact">Contact Me</a>--%>
                             </div>
                         </div>
                     </div>
