@@ -2,6 +2,8 @@ package com.projectmigry.migry.portfolio.main.service;
 
 import java.util.List;
 
+import com.projectmigry.migry.portfolio.main.domain.ProfileVO;
+import com.projectmigry.migry.portfolio.main.domain.SkillVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,21 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public List<ProjectVO> getProjectList() throws Exception {
 		return mainMapper.selectProjectList();
+	}
+
+	@Override
+	public List<SkillVO> getSkillList() throws Exception {
+		return mainMapper.selectSkillList();
+	}
+
+	@Override
+	public ProfileVO getProfileInfo() throws Exception {
+		return mainMapper.selectProfile();
+	}
+
+	@Override
+	public ProfileVO getProfileFile() throws Exception {
+		return mainMapper.selectProfileFile();
 	}
 
 }

@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.net.URLEncoder;
 import java.util.List;
 
+import com.projectmigry.migry.portfolio.main.domain.ProfileVO;
+import com.projectmigry.migry.portfolio.main.domain.SkillVO;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,13 +31,19 @@ public class MainController {
 	public String index(Model model) {
 		List<BlogVO> blogList = null;
 		List<ProjectVO> projectList = null;
+		List<SkillVO> skillList = null;
+		ProfileVO profile = null;
 		
 		try {
 			blogList = mainService.getBlogLatestList();
 			projectList = mainService.getProjectList();
+			skillList = mainService.getSkillList();
+			profile = mainService.getProfileInfo();
 			
 			model.addAttribute("blogList", blogList);
 			model.addAttribute("projectList", projectList);
+			model.addAttribute("skillList", skillList);
+			model.addAttribute("profile", profile);
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
@@ -62,6 +70,43 @@ public class MainController {
 			
 			File file = new File(realFile);
 			
+			if(file.exists()){
+				in = new FileInputStream(file);
+				out = new BufferedOutputStream(response.getOutputStream());
+				int len;
+				byte[] buf = new byte[1024];
+				while ((len = in.read(buf)) > 0) {
+					out.write(buf, 0, len);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(out != null){ out.flush(); }
+			if(out != null){ out.close(); }
+			if(in != null){ in.close(); }
+		}
+	}
+
+	@GetMapping("/profile/image")
+	public void getProfileImage(HttpServletResponse response) throws Exception {
+		ProfileVO profileVO = mainService.getProfileFile();
+		String filePath = Const.ProfileSavePath;
+		String fileName = profileVO.getFileName();
+		String oriFileName = profileVO.getOriFileName();
+
+		String realFile = filePath + "/" + fileName;
+		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
+
+		BufferedOutputStream out = null;
+		InputStream in = null;
+
+		try {
+			response.setContentType("image/" + ext);
+			response.setHeader("Content-Disposition", "inline;filename=" + URLEncoder.encode(oriFileName, "UTF-8"));
+
+			File file = new File(realFile);
+
 			if(file.exists()){
 				in = new FileInputStream(file);
 				out = new BufferedOutputStream(response.getOutputStream());

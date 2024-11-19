@@ -40,4 +40,30 @@
 		order by start_ym desc
 	</select>
 
+	<select id="selectSkillList" resultType="com.projectmigry.migry.portfolio.main.domain.SkillVO">
+		select
+			id,
+			skill_name name,
+			skill_rate rate
+		from tb_skill
+		order by order_num
+	</select>
+
+	<select id="selectProfile" resultType="com.projectmigry.migry.portfolio.main.domain.ProfileVO">
+		select
+			title,
+			content,
+			file_name fileName
+		from tb_profile
+		where id = 1
+	</select>
+
+	<select id="selectProfileFile" resultType="com.projectmigry.migry.portfolio.main.domain.ProfileVO">
+		select
+			file_name fileName,
+			ori_file_name oriFileName
+		from tb_profile
+		where id = 1
+	</select>
+
 </mapper>

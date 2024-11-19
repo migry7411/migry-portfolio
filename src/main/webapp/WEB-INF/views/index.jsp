@@ -11,7 +11,7 @@
         <meta content="Developer TH" name="description">
 
         <!-- Favicon -->
-        <link href="/resources/img/favicon.ico" rel="icon">
+        <%--<link href="<c:url value='/resources/img/favicon.ico' />" rel="icon">--%>
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -19,12 +19,12 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="/resources/lib/animate/animate.min.css" rel="stylesheet">
-        <link href="/resources/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="/resources/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="<c:url value='/resources/lib/animate/animate.min.css' />" rel="stylesheet">
+        <link href="<c:url value='/resources/lib/owlcarousel/assets/owl.carousel.min.css' />" rel="stylesheet">
+        <link href="<c:url value='/resources/lib/lightbox/css/lightbox.min.css' />" rel="stylesheet">
 
         <!-- Template Stylesheet -->
-        <link href="/resources/css/style.css" rel="stylesheet">
+        <link href="<c:url value='/resources/css/style.css' />" rel="stylesheet">
     </head>
 
     <body data-spy="scroll" data-target=".navbar" data-offset="51" oncontextmenu='return false' ondragstart='return false'>
@@ -65,7 +65,7 @@
                                 <!--<p>I'm</p>-->
                                 <!--<h1>Developer TH</h1>-->
                                 <h2></h2>
-                                <div class="typed-text">Hellow World..., How are you?, I'm fine. Thank you...</div>
+                                <div class="typed-text">Hello World..., How are you?, I'm fine. Thank you...</div>
                             </div>
                             <div class="hero-btn">
                                 <!--<a class="btn" href="">Hire Me</a>-->
@@ -75,7 +75,7 @@
                     </div>
                     <div class="col-sm-12 col-md-6 d-none d-md-block">
                         <div class="hero-image">
-                            <img src="/resources/img/home.png" alt="Hero Image">
+                            <img src="<c:url value='/resources/img/home.png' />" alt="Hero Image">
                         </div>
                     </div>
                 </div>
@@ -85,92 +85,39 @@
 
 
         <!-- About Start -->
-        <div class="about wow fadeInUp" data-wow-delay="0.1s" id="about">
+        <div class="about wow fadeInUp" data-wow-delay="0.1s" id="about" style="margin-top: 1rem;">
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="about-img">
-                            <img src="/resources/img/profile.png" alt="Image">
+                        <c:choose><c:when test='${profile.fileName != null && !profile.fileName.equals("")}'>
+                            <img src="<c:url value='/profile/image' />" alt="Image">
+                        </c:when><c:otherwise>
+                            <img src="<c:url value='/resources/img/profile.png' />" alt="Image">
+                        </c:otherwise></c:choose>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="about-content">
                             <div class="section-header text-left">
                                 <p>About Me</p>
-                                <h2>Since 2010..</h2>
+                                <h2>${profile.title}</h2>
                             </div>
                             <div class="about-text">
                                 <p>
-                                    대학 졸업 후 첫 회사에서는 C# 및 MS-SQL을 사용하여 개발하였으며, 2년 후에 상경한 이후부터 지금까지 줄곧 Java 및 Spring 기반의 개발업무를 주로 담당했습니다. 새로운 기술에 대한 연구도 게을리하지 않을 것이며, 현재의 위치에 안주하지 않고 나날이 발전하는 모습을 보여드릴 것입니다.
+                                    ${profile.content}
                                 </p>
                             </div>
                             <div class="skills">
+                            <c:forEach var="row" items="${skillList}">
                                 <div class="skill-name">
-                                    <p>JAVA</p><p>90%</p>
+                                    <p>${row.name}</p><p>${row.rate}%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="${row.rate}"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                                <div class="skill-name">
-                                    <p>Javascript</p><p>90%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="skill-name">
-                                    <p>Python</p><p>50%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <div class="skill-name">
-                                    <p>Spring</p><p>90%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-								<div class="skill-name">
-                                    <p>Django</p><p>50%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-								<div class="skill-name">
-                                    <p>Oracle</p><p>80%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-								<div class="skill-name">
-                                    <p>MariaDB</p><p>85%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-								<div class="skill-name">
-                                    <p>Postgresql</p><p>85%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-								<div class="skill-name">
-                                    <p>Git</p><p>60%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-								<div class="skill-name">
-                                    <p>Jenkins</p><p>60%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-								<div class="skill-name">
-                                    <p>AWS</p><p>50%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                            </c:forEach>
                             </div>
                             <!-- <a class="btn" href="">More</a> -->
                         </div>
@@ -769,13 +716,13 @@
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="/resources/lib/easing/easing.min.js"></script>
-        <script src="/resources/lib/wow/wow.min.js"></script>
-        <script src="/resources/lib/waypoints/waypoints.min.js"></script>
-        <script src="/resources/lib/typed/typed.min.js"></script>
-        <script src="/resources/lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="/resources/lib/isotope/isotope.pkgd.min.js"></script>
-        <script src="/resources/lib/lightbox/js/lightbox.min.js"></script>
+        <script src="<c:url value='/resources/lib/easing/easing.min.js' />"></script>
+        <script src="<c:url value='/resources/lib/wow/wow.min.js' />"></script>
+        <script src="<c:url value='/resources/lib/waypoints/waypoints.min.js' />"></script>
+        <script src="<c:url value='/resources/lib/typed/typed.min.js' />"></script>
+        <script src="<c:url value='/resources/lib/owlcarousel/owl.carousel.min.js' />"></script>
+        <script src="<c:url value='/resources/lib/isotope/isotope.pkgd.min.js' />"></script>
+        <script src="<c:url value='/resources/lib/lightbox/js/lightbox.min.js' />"></script>
         
         <!-- Contact Javascript File 
         <script src="/resources/mail/jqBootstrapValidation.min.js"></script>
@@ -783,6 +730,6 @@
         -->
         
         <!-- Template Javascript -->
-        <script src="/resources/js/main.js"></script>
+        <script src="<c:url value='/resources/js/main.js' />"></script>
     </body>
 </html>
